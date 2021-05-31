@@ -39,4 +39,33 @@ public class Price {
 		}
 		
 	}
+	public int racingprice(int teacher,int student,String[] time) throws Exception{
+		int j=0;
+		String[] timestep = {"A","B","C","D","E"};
+		for(int i=0;i<time.length;i++) {
+			for(j=i+1;j<time.length;j++) {
+				if(time[i].equals(time[j])) {
+					throw new Exception();
+				}
+
+			}
+		}
+		for(int i=0;i<time.length;i++) {
+			for(j=0;j<timestep.length;j++) {
+				if(time[i].equals(timestep[j])) {
+					break;
+				}
+			}
+			if(j == timestep.length) {
+				throw new Exception();
+			}
+		}
+		if(teacher<1) {
+			throw new Exception();
+		}else if(teacher+student<10) {
+			return 3000*time.length*2;
+		}else {
+			return (teacher*120+student*70)*time.length;
+		}
+	}
 }

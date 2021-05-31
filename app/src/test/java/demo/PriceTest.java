@@ -97,4 +97,41 @@ class PriceTest {
 		""
 		);
 	}
+	@Test
+	void testSwimprice16() throws Exception {
+		String[] time = {"A"} ;
+		assertThrows(
+		Exception.class,
+		() -> 	people.racingprice(0, 10, time),
+		""
+		);
+	}
+	@Test
+	void testSwimprice17() throws Exception {
+		String[] time = {"A","A"} ;
+		assertThrows(
+		Exception.class,
+		() -> 	people.racingprice(1, 10, time),
+		""
+		);
+	}
+	@Test
+	void testSwimprice18() throws Exception {
+		String[] time = {"A","F"} ;
+		assertThrows(
+		Exception.class,
+		() -> 	people.racingprice(1, 10, time),
+		""
+		);
+	}
+	@Test
+	void testSwimprice19() throws Exception {
+		String[] time = {"A","B","C","D","E"} ;
+		assertEquals(30000,people.racingprice(1, 1, time));
+	}
+	@Test
+	void testSwimprice20() throws Exception {
+		String[] time = {"A","B","C","D","E"} ;
+		assertEquals(4100,people.racingprice(1, 10, time));
+	}
 }
